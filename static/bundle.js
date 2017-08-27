@@ -31429,6 +31429,10 @@ var _react = __webpack_require__(173);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Card = __webpack_require__(515);
+
+var _Card2 = _interopRequireDefault(_Card);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -31442,6 +31446,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * A counter button: tap the button to increase the count.
  */
+
 var Cards = function (_React$Component) {
     _inherits(Cards, _React$Component);
 
@@ -31515,102 +31520,9 @@ var Cards = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'pure-u-1 pure-u-md-3-4' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'pure-g' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'pure-u-1 pure-u-md-1-2' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'l-box' },
-                                _react2.default.createElement(
-                                    'h3',
-                                    null,
-                                    'repo name'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'description'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'pure-u-1 pure-u-md-1-2' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'l-box' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'is repo a fork?'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'stars count'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'updated date'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'language'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'pure-u-1 pure-u-md-1-2' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'l-box' },
-                                _react2.default.createElement(
-                                    'h3',
-                                    null,
-                                    'repo name'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'description'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'pure-u-1 pure-u-md-1-2' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'l-box' },
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'is repo a fork?'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'stars count'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'updated date'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'language'
-                                )
-                            )
-                        )
-                    )
+                    this.state.data.map(function (repo) {
+                        return _react2.default.createElement(_Card2.default, { repoName: repo.name });
+                    })
                 )
             );
         }
@@ -31620,6 +31532,84 @@ var Cards = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Cards;
+
+/***/ }),
+/* 515 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(173);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Card = function Card(_ref) {
+    var repoName = _ref.repoName;
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+            'div',
+            { className: 'pure-u-1 pure-u-md-1-2' },
+            _react2.default.createElement(
+                'div',
+                { className: 'l-box' },
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    '' + repoName
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'description'
+                )
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'pure-u-1 pure-u-md-1-2' },
+            _react2.default.createElement(
+                'div',
+                { className: 'l-box' },
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'is repo a fork?'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'stars count'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'updated date'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'language'
+                )
+            )
+        )
+    );
+};
+
+Card.propTypes = {
+    repoName: _react.PropTypes.string.isRequired
+};
+
+exports.default = Card;
 
 /***/ })
 /******/ ]);
