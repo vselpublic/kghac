@@ -2,7 +2,7 @@
   "name": "kottans_ghac",
   "version": "0.0.1",
   "description": "Kottans GitHub Api Client project",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
     "compile": "webpack",
     "build": "webpack -p",
