@@ -1,5 +1,5 @@
 node_modules
 .DS_Store
-static/bundle.js
+www/bundle.js
 launch.json
 .eslintrc

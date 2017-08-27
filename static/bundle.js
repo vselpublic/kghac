@@ -9761,13 +9761,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Cards__ = __webpack_require__(185);
-throw new Error("Cannot find module \"./Search\"");
-throw new Error("Cannot find module \"./Dialog\"");
 
 
 
-
-
+// import Search from './Search';
+// import Dialog from './Dialog';
 
 document.addEventListener('DOMContentLoaded', function () {
     __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Cards__["a" /* default */]), document.getElementById('mount'));
