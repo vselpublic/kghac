@@ -1,6 +1,4 @@
-export async function getUserReposData() {
-    const response = await fetch('tailhook.json', {});
-    const json = await response.json();
-
-    return json;
+export async function getUserReposData(username) {
+    const response = await fetch(`${username}.json`, {});
+    return response.json();
 }
