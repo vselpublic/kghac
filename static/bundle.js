@@ -31540,7 +31540,7 @@ var Card = function Card(_ref) {
 
     return _react2.default.createElement(
         'div',
-        null,
+        { className: 'card' },
         _react2.default.createElement(
             'div',
             { className: 'pure-u-1 pure-u-md-1-2' },

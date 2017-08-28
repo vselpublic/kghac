@@ -10,7 +10,7 @@ const Card = ({
     repoLanguage
 }) => {
     return (
-        <div>
+        <div className='card'>
             <div className='pure-u-1 pure-u-md-1-2'>
                 <div className='l-box'>
                     <h3>{`${repoName}`}</h3>
