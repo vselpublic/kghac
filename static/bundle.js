@@ -19337,18 +19337,26 @@ var _Search = __webpack_require__(519);
 
 var _Search2 = _interopRequireDefault(_Search);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Dialog = __webpack_require__(521);
 
-// import Dialog from './Dialog';
+var _Dialog2 = _interopRequireDefault(_Dialog);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
     _reactDom2.default.render(_react2.default.createElement(_Search2.default), document.getElementById('mount'));
     setTimeout(function () {
         _reactDom2.default.unmountComponentAtNode(document.getElementById('mount'));
-    }, 5000);
+    }, 1000);
     setTimeout(function () {
         _reactDom2.default.render(_react2.default.createElement(_Cards2.default), document.getElementById('mount'));
-    }, 6000);
+    }, 2000);
+    setTimeout(function () {
+        _reactDom2.default.unmountComponentAtNode(document.getElementById('mount'));
+    }, 3000);
+    setTimeout(function () {
+        _reactDom2.default.render(_react2.default.createElement(_Dialog2.default), document.getElementById('mount'));
+    }, 4000);
 });
 
 /***/ }),
@@ -31989,6 +31997,102 @@ function boundMethod(target, key, descriptor) {
   };
 }
 
+
+/***/ }),
+/* 521 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp;
+
+var _react = __webpack_require__(88);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(517);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import autobind from 'autobind-decorator';
+
+var CardDialog = (_temp = _class = function (_React$Component) {
+    _inherits(CardDialog, _React$Component);
+
+    function CardDialog(props) {
+        _classCallCheck(this, CardDialog);
+
+        var _this = _possibleConstructorReturn(this, (CardDialog.__proto__ || Object.getPrototypeOf(CardDialog)).call(this, props));
+
+        _this.state = {
+            open: false,
+            searchTerm: '',
+            current: 0,
+            value: _this.props.value
+        };
+        return _this;
+    }
+
+    _createClass(CardDialog, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'popup1', className: 'overlay' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'popup' },
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Here i am'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'close', href: '#' },
+                        '\xD7'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'content' },
+                        'Thank to pop me out of that button, but now i\'m done so you can close this window.'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CardDialog;
+}(_react2.default.Component), _class.defaultProps = {
+    linkToRepo: '',
+    linkToFork: '',
+    contributors: [],
+    languages: [],
+    prs: []
+}, _class.propTypes = {
+    linkToRepo: _propTypes2.default.string,
+    linkToFork: _propTypes2.default.string,
+    contributors: _propTypes2.default.array,
+    languages: _propTypes2.default.array,
+    prs: _propTypes2.default.array
+}, _temp);
+exports.default = CardDialog;
 
 /***/ })
 /******/ ]);

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Cards from './Cards';
 import SearchDialog from './Search';
-// import Dialog from './Dialog';
+import CardDialog from './Dialog';
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(
@@ -11,10 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     setTimeout(
         () => { ReactDOM.unmountComponentAtNode(document.getElementById('mount')); },
-        5000
+        1000
     );
     setTimeout(
         () => { ReactDOM.render(React.createElement(Cards), document.getElementById('mount')); },
-        6000
+        2000
+    );
+    setTimeout(
+        () => { ReactDOM.unmountComponentAtNode(document.getElementById('mount')); },
+        3000
+    );
+    setTimeout(
+        () => { ReactDOM.render(React.createElement(CardDialog), document.getElementById('mount')); },
+        4000
     );
 });
