@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         5000
     );
     setTimeout(
-        () => { ReactDOM.render(React.createElement(Cards),document.getElementById('mount')); },
+        () => { ReactDOM.render(React.createElement(Cards), document.getElementById('mount')); },
         6000
     );
 });

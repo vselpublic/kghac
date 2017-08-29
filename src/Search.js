@@ -6,20 +6,20 @@ export default class SearchDialog extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            username: ''
         };
     }
 
     @autobind
     onInputChange(ev) {
-        console.log(ev.target.value);
-        console.log(this.state);
+        this.setState({ username: ev.target.value });
     }
 
     @autobind
     onSubmitForm(ev) {
         ev.preventDefault();
-        getUserReposData(ev.target.value).then((json) => { this.setState({ data: json }); });
+        getUserReposData(this.state.username).then((json) => { this.setState({ data: json }); });
     }
 
     render() {

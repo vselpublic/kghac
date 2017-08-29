@@ -31809,7 +31809,8 @@ var SearchDialog = (_class = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (SearchDialog.__proto__ || Object.getPrototypeOf(SearchDialog)).call(this));
 
         _this.state = {
-            data: []
+            data: [],
+            username: ''
         };
         return _this;
     }
@@ -31817,8 +31818,7 @@ var SearchDialog = (_class = function (_React$Component) {
     _createClass(SearchDialog, [{
         key: 'onInputChange',
         value: function onInputChange(ev) {
-            console.log(ev.target.value);
-            console.log(this.state);
+            this.setState({ username: ev.target.value });
         }
     }, {
         key: 'onSubmitForm',
@@ -31826,7 +31826,7 @@ var SearchDialog = (_class = function (_React$Component) {
             var _this2 = this;
 
             ev.preventDefault();
-            (0, _github_client.getUserReposData)(ev.target.value).then(function (json) {
+            (0, _github_client.getUserReposData)(this.state.username).then(function (json) {
                 _this2.setState({ data: json });
             });
         }
