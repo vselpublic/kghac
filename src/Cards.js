@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import { getUserReposData } from './github_client';
+import CardDialog from "./Dialog";
 
 /**
  * A counter button: tap the button to increase the count.
@@ -36,6 +37,7 @@ export default class Cards extends React.Component {
                         );
                     }
                 )}
+                { this.props.showPopup && <CardDialog showPopup={this.props.showPopup} />}
             </div>
         );
     }

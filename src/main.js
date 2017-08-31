@@ -14,15 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         1000
     );
     setTimeout(
-        () => { ReactDOM.render(React.createElement(Cards), document.getElementById('mount')); },
+        () => {
+            ReactDOM.render(React.createElement(Cards, { showPopup: true }),
+                document.getElementById('mount'));
+        },
         2000
-    );
-    setTimeout(
-        () => { ReactDOM.unmountComponentAtNode(document.getElementById('mount')); },
-        3000
-    );
-    setTimeout(
-        () => { ReactDOM.render(React.createElement(CardDialog), document.getElementById('mount')); },
-        4000
     );
 });
