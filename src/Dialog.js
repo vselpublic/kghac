@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 export default class CardDialog extends React.Component {
     static defaultProps = {
-        showPopup: false,
         linkToRepo: '',
         linkToFork: '',
         contributors: [],
@@ -13,7 +12,6 @@ export default class CardDialog extends React.Component {
     };
 
     static propTypes = {
-        showPopup: PropTypes.boolean,
         linkToRepo: PropTypes.string,
         linkToFork: PropTypes.string,
         contributors: PropTypes.array,
@@ -31,10 +29,13 @@ export default class CardDialog extends React.Component {
         };
     }
 
+    componentWillReceiveProps() {
+        console.log('dfss');
+    }
 
     render() {
         return (
-            <div id='popup1' className={this.props.showPopup ? 'overlay' : 'hidden overlay'} >
+            <div id='popup1' className='overlay'>
                 <div className='popup'>
                     <h2>Here i am</h2>
                     <a className='close' href='#'>&times;</a>

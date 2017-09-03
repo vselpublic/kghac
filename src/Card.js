@@ -7,10 +7,11 @@ const Card = ({
     repoIsFork,
     repoStars,
     repoUpdatedDate,
-    repoLanguage
+    repoLanguage,
+    onClick,
 }) => {
     return (
-        <div className='card'>
+        <div className='card' onClick={onClick} key={`${repoName}`}>
             <div className='pure-u-1 pure-u-md-1-2'>
                 <div className='l-box'>
                     <h3>{`${repoName}`}</h3>
@@ -36,6 +37,7 @@ Card.propTypes = {
     repoStars: PropTypes.number.isRequired,
     repoUpdatedDate: PropTypes.string.isRequired,
     repoLanguage: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 };
 
 export default Card;

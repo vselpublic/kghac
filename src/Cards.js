@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './Card';
 import { getUserReposData } from './github_client';
 import CardDialog from "./Dialog";
+import autobind from 'autobind-decorator';
 
 /**
  * A counter button: tap the button to increase the count.
@@ -11,12 +12,21 @@ export default class Cards extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            showPopup: false
         };
     }
 
     componentDidMount() {
         getUserReposData('tailhook').then((json) => { this.setState({ data: json }); });
+    }
+
+    @autobind
+    onClickYoba() {
+        console.log('YOBA');
+        this.state.showPopup = true;
+        console.log(this.state.showPopup);
+        this.forceUpdate();
     }
 
     render() {
@@ -33,11 +43,12 @@ export default class Cards extends React.Component {
                                 repoStars={repo.stargazers_count}
                                 repoUpdatedDate={repo.updated_at}
                                 repoLanguage={repo.language ? repo.language : ':=('}
+                                onClick={this.onClickYoba}
                             />
                         );
                     }
                 )}
-                { this.props.showPopup && <CardDialog showPopup={this.props.showPopup} />}
+                { this.state.showPopup && <CardDialog />}
             </div>
         );
     }
