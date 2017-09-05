@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import autobind from 'autobind-decorator';
+import ReactDOM from 'react-dom';
+import autobind from 'autobind-decorator';
 
 export default class CardDialog extends React.Component {
     static defaultProps = {
@@ -29,16 +30,18 @@ export default class CardDialog extends React.Component {
         };
     }
 
-    componentWillReceiveProps() {
-        console.log('dfss');
+    // Tak nelzya pora uzat' redux
+    @autobind
+    onCrossClicked() {
+        ReactDOM.unmountComponentAtNode(document.getElementById('popup1'));
     }
 
     render() {
         return (
             <div id='popup1' className='overlay'>
                 <div className='popup'>
-                    <h2>Here i am</h2>
-                    <a className='close' href='#'>&times;</a>
+                    <h2>{`${this.props.linkToRepo}`}</h2>
+                    <a className='close' href='#' onClick={this.onCrossClicked}>&times;</a>
                     <div className='content'>
                         Thank to pop me out of that button, but now i'm done so you can close this window.
                     </div>

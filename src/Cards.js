@@ -13,7 +13,8 @@ export default class Cards extends React.Component {
         super();
         this.state = {
             data: [],
-            showPopup: false
+            showPopup: false,
+            clickedCardID: undefined,
         };
     }
 
@@ -22,11 +23,8 @@ export default class Cards extends React.Component {
     }
 
     @autobind
-    onClickYoba() {
-        console.log('YOBA');
-        this.state.showPopup = true;
-        console.log(this.state.showPopup);
-        this.forceUpdate();
+    onCardClick(id) {
+        this.setState({ showPopup: true, clickedCardID: id });
     }
 
     render() {
@@ -43,12 +41,12 @@ export default class Cards extends React.Component {
                                 repoStars={repo.stargazers_count}
                                 repoUpdatedDate={repo.updated_at}
                                 repoLanguage={repo.language ? repo.language : ':=('}
-                                onClick={this.onClickYoba}
+                                onClick={() => { this.onCardClick(repo.id); }}
                             />
                         );
                     }
                 )}
-                { this.state.showPopup && <CardDialog />}
+                { this.state.showPopup && <CardDialog linkToRepo={this.state.clickedCardID} />}
             </div>
         );
     }

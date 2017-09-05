@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Cards from './Cards';
 import SearchDialog from './Search';
-import CardDialog from './Dialog';
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(

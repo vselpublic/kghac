@@ -11,7 +11,7 @@ const Card = ({
     onClick,
 }) => {
     return (
-        <div className='card' onClick={onClick} key={`${repoName}`}>
+        <div className='card' onClick={onClick}>
             <div className='pure-u-1 pure-u-md-1-2'>
                 <div className='l-box'>
                     <h3>{`${repoName}`}</h3>
