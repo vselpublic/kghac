@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Card from './Card';
 import CardDialog from './Dialog';
 import autobind from 'autobind-decorator';
@@ -37,6 +38,11 @@ class Cards extends React.Component {
         this.setState({ showPopup: true, clickedCardID: id });
     }
 
+    @autobind
+    onPopUpCrossClicked() {
+        this.setState({ showPopup: false, clickedCardID: undefined });
+    }
+
     render() {
         if (this.props.data !== undefined) {
             return (
@@ -57,7 +63,13 @@ class Cards extends React.Component {
                             );
                         }
                     )}
-                    { this.state.showPopup && <CardDialog linkToRepo={this.state.clickedCardID} />}
+                    {
+                        this.state.showPopup
+                        && <CardDialog
+                            linkToRepo={this.state.clickedCardID}
+                            onCrossClicked={this.onPopUpCrossClicked}
+                        />
+                    }
                 </div>
             );
         }
