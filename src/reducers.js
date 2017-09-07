@@ -2681,7 +2681,6 @@ export const todos = (state = {}, action) => {
                     }
                 ]
             };
-            console.log(state);
             return state;
         default:
             return state;

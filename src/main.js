@@ -6,7 +6,7 @@ import CardsContainer from './Cards';
 import { todos } from './reducers';
 // import SearchDialog from './Search';
 
-const store = createStore(todos);
+const store = createStore(todos, { data: [] });
 
 document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(

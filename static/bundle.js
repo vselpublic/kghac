@@ -20270,7 +20270,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import SearchDialog from './Search';
 
-var store = (0, _redux.createStore)(_reducers.todos);
+var store = (0, _redux.createStore)(_reducers.todos, { data: [] });
 
 document.addEventListener('DOMContentLoaded', function () {
     _reactDom2.default.render(_react2.default.createElement(
@@ -33751,10 +33751,6 @@ var _react = __webpack_require__(62);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(186);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _Card = __webpack_require__(555);
 
 var _Card2 = _interopRequireDefault(_Card);
@@ -33857,34 +33853,27 @@ var Cards = (_class = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            if (this.props.data !== undefined) {
-                return _react2.default.createElement(
-                    'div',
-                    null,
-                    this.props.data.map(function (repo) {
-                        return _react2.default.createElement(_Card2.default, {
-                            key: repo.id,
-                            repoName: repo.name,
-                            repoDescription: repo.description ? repo.description : 'No Description Yet',
-                            repoIsFork: repo.fork,
-                            repoStars: repo.stargazers_count,
-                            repoUpdatedDate: repo.updated_at,
-                            repoLanguage: repo.language ? repo.language : ':=(',
-                            onClick: function onClick() {
-                                _this2.onCardClick(repo.id);
-                            }
-                        });
-                    }),
-                    this.state.showPopup && _react2.default.createElement(_Dialog2.default, {
-                        linkToRepo: this.state.clickedCardID,
-                        onCrossClicked: this.onPopUpCrossClicked
-                    })
-                );
-            }
             return _react2.default.createElement(
                 'div',
                 null,
-                this.state.showPopup && _react2.default.createElement(_Dialog2.default, { linkToRepo: this.state.clickedCardID })
+                this.props.data.map(function (repo) {
+                    return _react2.default.createElement(_Card2.default, {
+                        key: repo.id,
+                        repoName: repo.name,
+                        repoDescription: repo.description ? repo.description : 'No Description Yet',
+                        repoIsFork: repo.fork,
+                        repoStars: repo.stargazers_count,
+                        repoUpdatedDate: repo.updated_at,
+                        repoLanguage: repo.language ? repo.language : ':=(',
+                        onClick: function onClick() {
+                            _this2.onCardClick(repo.id);
+                        }
+                    });
+                }),
+                this.state.showPopup && _react2.default.createElement(_Dialog2.default, {
+                    linkToRepo: this.state.clickedCardID,
+                    onCrossClicked: this.onPopUpCrossClicked
+                })
             );
         }
     }]);
@@ -36883,7 +36872,6 @@ var todos = exports.todos = function todos() {
                     default_branch: 'master'
                 }]
             });
-            console.log(state);
             return state;
         default:
             return state;

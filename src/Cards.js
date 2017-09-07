@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Card from './Card';
 import CardDialog from './Dialog';
 import autobind from 'autobind-decorator';
@@ -44,38 +43,31 @@ class Cards extends React.Component {
     }
 
     render() {
-        if (this.props.data !== undefined) {
-            return (
-                <div>
-                    {this.props.data.map(
-                        (repo) => {
-                            return (
-                                <Card
-                                    key={repo.id}
-                                    repoName={repo.name}
-                                    repoDescription={repo.description ? repo.description : 'No Description Yet'}
-                                    repoIsFork={repo.fork}
-                                    repoStars={repo.stargazers_count}
-                                    repoUpdatedDate={repo.updated_at}
-                                    repoLanguage={repo.language ? repo.language : ':=('}
-                                    onClick={() => { this.onCardClick(repo.id); }}
-                                />
-                            );
-                        }
-                    )}
-                    {
-                        this.state.showPopup
-                        && <CardDialog
-                            linkToRepo={this.state.clickedCardID}
-                            onCrossClicked={this.onPopUpCrossClicked}
-                        />
-                    }
-                </div>
-            );
-        }
         return (
             <div>
-                { this.state.showPopup && <CardDialog linkToRepo={this.state.clickedCardID} />}
+                {this.props.data.map(
+                    (repo) => {
+                        return (
+                            <Card
+                                key={repo.id}
+                                repoName={repo.name}
+                                repoDescription={repo.description ? repo.description : 'No Description Yet'}
+                                repoIsFork={repo.fork}
+                                repoStars={repo.stargazers_count}
+                                repoUpdatedDate={repo.updated_at}
+                                repoLanguage={repo.language ? repo.language : ':=('}
+                                onClick={() => { this.onCardClick(repo.id); }}
+                            />
+                        );
+                    }
+                )}
+                {
+                    this.state.showPopup
+                    && <CardDialog
+                        linkToRepo={this.state.clickedCardID}
+                        onCrossClicked={this.onPopUpCrossClicked}
+                    />
+                }
             </div>
         );
     }
