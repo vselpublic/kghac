@@ -1,12 +1,10 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
-import { getUserReposData } from './github_client';
 
 export default class SearchDialog extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [],
             username: ''
         };
     }
@@ -19,7 +17,7 @@ export default class SearchDialog extends React.Component {
     @autobind
     onSubmitForm(ev) {
         ev.preventDefault();
-        getUserReposData(this.state.username).then((json) => { this.setState({ data: json }); });
+        this.props.getDataFromGithub('tailhook');
     }
 
     render() {

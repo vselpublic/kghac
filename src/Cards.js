@@ -2,34 +2,14 @@ import React from 'react';
 import Card from './Card';
 import CardDialog from './Dialog';
 import autobind from 'autobind-decorator';
-import { connect } from 'react-redux';
-import { getDataFromGithub } from './actions';
-import { bindActionCreators } from 'redux';
 
-
-function mapStateToProps(state) {
-    return {
-        data: state.data
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        getDataFromGithub: bindActionCreators(getDataFromGithub, dispatch)
-    };
-}
-
-class Cards extends React.Component {
+export default class Cards extends React.Component {
     constructor() {
         super();
         this.state = {
             showPopup: false,
             clickedCardID: undefined,
         };
-    }
-
-    componentDidMount() {
-        this.props.getDataFromGithub('tailhook');
     }
 
     @autobind
@@ -72,6 +52,3 @@ class Cards extends React.Component {
         );
     }
 }
-
-const CardsContainer = connect(mapStateToProps, mapDispatchToProps)(Cards);
-export default CardsContainer;

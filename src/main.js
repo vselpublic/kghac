@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import CardsContainer from './Cards';
+import CardsContainer from './prereactrouter';
 import { todos } from './reducers';
 // import SearchDialog from './Search';
 
